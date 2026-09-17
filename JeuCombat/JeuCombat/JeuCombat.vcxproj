@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7bcba938-7966-4a72-991b-e7f1af9e2c9d}</ProjectGuid>
-    <RootNamespace>CPPInitiation</RootNamespace>
+    <ProjectGuid>{16f3eff0-dae6-46df-aaa2-7908b34f6007}</ProjectGuid>
+    <RootNamespace>JeuCombat</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,7 +123,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CPPInitiation.cpp" />
+    <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="Drone.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="JeuCombat.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="Visual.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cell.h" />
+    <ClInclude Include="Drone.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Logic.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="Visual.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
