@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Drone.cpp" />
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="JeuCombat.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Visual.cpp" />
@@ -133,7 +132,6 @@
   <ItemGroup>
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Drone.h" />
-    <ClInclude Include="Game.h" />
     <ClInclude Include="Logic.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Visual.h" />
