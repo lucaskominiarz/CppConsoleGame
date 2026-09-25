@@ -3,32 +3,37 @@
 #include "Cell.h"
 
 constexpr int gridSize = 20;
-Cell grid[gridSize][gridSize]{ Cell() };
+Cell* grid[gridSize * gridSize]{ nullptr };
 Visual visual;
+bool win = false;
+Cell* GetCell(int row, int col) {
+    return grid[row * gridSize + col];
+}
 
-bool j1Playing;
-bool win;
+void SetCell(int row, int col, Cell* cell) {
+    grid[row * gridSize + col] = cell;
+}
 
-void GameLoop() {
-    int columnInput;
-    int rowInput;
+int main() {
+    SetCell(5, 7, new Plane());
+
     while (!win) {
-        visual.Draw(&grid[0][0], gridSize);
+        visual.Draw(grid, gridSize);
+
+        int rowInput, columnInput;
+        std::cout << "Ligne : ";
+        std::cin >> rowInput;
         std::cout << "Colonne : ";
         std::cin >> columnInput;
-        std::cout << std::endl << "Ligne : ";
-        std::cin >> rowInput;
-        Cell selectedCell = grid[columnInput][rowInput];
-        // check si la cellule est d'un certain type et si le joueur a acces si oui montrer ses stats et l'attaque possible 
-        // la fonction attaque et tout faudrais les mettre directement dans avion et drone 
+
+        Cell* selected = GetCell(rowInput, columnInput);
+        if (dynamic_cast<Plane*>(selected)) {
+            std::cout << "Avon selectionne !\n";
+        }
     }
-}
+    for (int i = 0; i < gridSize * gridSize; ++i) {
+        delete grid[i];
+    }
 
-
-int main(){
-
-    grid[5][7] = Plane();
-    GameLoop();
     return 0;
 }
-

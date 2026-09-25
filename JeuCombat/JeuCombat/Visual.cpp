@@ -1,28 +1,28 @@
 ﻿#include "Visual.h"
 
-void Visual::Draw(Cell* grid, const int size) {
-	system("cls");
-	for (size_t i = 1; i <= size; i++) {
+#include <iostream>
+#include <sstream>
 
-		std::cout << "|";
+void Visual::Draw(Cell* grid[], const int size) {
+    system("cls");
+    for (int i = 0; i < size; ++i) {
+        std::cout << "|";
+        for (int j = 0; j < size; ++j) {
+            Cell* ptr = grid[i * size + j];
 
-		for (size_t j = 0; j < size; j++) {
-
-			Cell* ptr = &grid[i*j];
-			if (dynamic_cast<Plane*>(ptr)) { // marche pas 
-				std::cout << "p|";
-			}
-			else if (dynamic_cast<Drone*>(ptr)) {
-				std::cout << "d|";
-			}
-			else {
-				std::cout << "_|";
-			}
-		}
-		std::cout << std::endl;
-	} // me renseigner sur les string stream et faire le rayon de range qui se redraw en fonction du joueur qui joue 
+            if (dynamic_cast<Plane*>(ptr)) {
+                std::cout << "p|";
+            }
+            else if (dynamic_cast<Drone*>(ptr)) {
+                std::cout << "d|";
+            }
+            else {
+                std::cout << "_|";
+            }
+        }
+        std::cout << "\n";
+    }
 }
-
 void Visual::RangeCircle(bool* fog, const int size, int centerX, int centerY, int radius) {
 
 	for (int i = centerY - radius; i <= centerY + radius; i++) {
