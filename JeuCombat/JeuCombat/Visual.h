@@ -8,7 +8,6 @@
 class Visual
 {
 public:
-	void Draw(Cell* grid[], const int size);
-	void RangeCircle(bool* fog, const int size, int centerX, int centerY, int radius);
+    void Draw(Cell* grid[], const int size, bool isJ1Turn);
+    void RangeCircle(bool* range, const int size, int centerX, int centerY, int radius);
 };
-

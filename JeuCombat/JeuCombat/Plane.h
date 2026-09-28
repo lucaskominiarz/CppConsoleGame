@@ -1,12 +1,12 @@
 #pragma once
 #include "Cell.h"
+
 class Plane : public Cell
 {
-public : 
-	int GetHp() { return hp; };
-	bool TakeDamage(int value);
+public:
+    Plane(bool isJ1 = true);
 
-private:
-	int hp;
+    bool Attack(Cell* target, int sourceRow, int sourceCol, int targetRow, int targetCol) override;
+    bool CanAttack(int sourceRow, int sourceCol, int targetRow, int targetCol) const override;
+    bool IsEmpty() const override { return false; }
 };
-

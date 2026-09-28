@@ -1,7 +1,22 @@
 #include "Plane.h"
-bool Plane::TakeDamage(int value) {
-	hp -= value;
-	return hp <= 0;
+
+Plane::Plane(bool isJ1)
+    : Cell(100, isJ1, 4, 35) {
 }
 
-// Attaque et peut être un appel a la fonction visual pour demander a afficher ses stats 
+bool Plane::CanAttack(int sourceRow, int sourceCol, int targetRow, int targetCol) const {
+    int distSq = DistanceSquared(sourceRow, sourceCol, targetRow, targetCol);
+    return distSq <= range * range;
+}
+
+bool Plane::Attack(Cell* target, int sourceRow, int sourceCol, int targetRow, int targetCol) { // faire 2e type de plane avec une attaque de zone
+    if (!target || target->IsEmpty() || target->GetPlayer() == isJ1) {
+        return false;
+    }
+
+    if (CanAttack(sourceRow, sourceCol, targetRow, targetCol)) {
+        target->TakeDamage(attackPower);
+        return true;
+    }
+    return false;
+}
