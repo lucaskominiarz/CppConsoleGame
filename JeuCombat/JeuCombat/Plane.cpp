@@ -1,7 +1,7 @@
 #include "Plane.h"
 
 Plane::Plane(bool isJ1)
-    : Cell(100, isJ1, 4, 35) {
+    : Cell(100, isJ1, 4, 35, 3) {
 }
 
 bool Plane::CanAttack(int sourceRow, int sourceCol, int targetRow, int targetCol) const {
