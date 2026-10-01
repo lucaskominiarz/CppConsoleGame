@@ -20,6 +20,8 @@ public:
     int GetAttackPower() const;
     virtual bool TakeDamage(int damage);
     int GetMoveSpeed() const;
+    void Heal(int amount);
+    virtual bool IsNeutral() const;
 
     bool CanMoveTo(int sourceRow, int sourceCol, int targetRow, int targetCol) const;
     virtual bool Attack(Cell* target, int sourceRow, int sourceCol, int targetRow, int targetCol) = 0;

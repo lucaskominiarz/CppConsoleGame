@@ -1,7 +1,6 @@
 #include "Plane.h"
 
-Plane::Plane(bool isJ1)
-    : Cell(100, isJ1, 4, 35, 3) {
+Plane::Plane(bool isJ1) : Cell(100, isJ1, 5, 35, 2) {
 }
 
 bool Plane::CanAttack(int sourceRow, int sourceCol, int targetRow, int targetCol) const {
@@ -9,8 +8,8 @@ bool Plane::CanAttack(int sourceRow, int sourceCol, int targetRow, int targetCol
     return distSq <= range * range;
 }
 
-bool Plane::Attack(Cell* target, int sourceRow, int sourceCol, int targetRow, int targetCol) { // faire 2e type de plane avec une attaque de zone
-    if (!target || target->IsEmpty() || target->GetPlayer() == isJ1) {
+bool Plane::Attack(Cell* target, int sourceRow, int sourceCol, int targetRow, int targetCol) {
+    if (!target || target->IsEmpty() || target->GetPlayer() == isJ1 && !target->IsNeutral()) {
         return false;
     }
 

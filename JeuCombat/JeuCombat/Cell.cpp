@@ -43,3 +43,14 @@ bool Cell::CanMoveTo(int sourceRow, int sourceCol, int targetRow, int targetCol)
     int distSq = DistanceSquared(sourceRow, sourceCol, targetRow, targetCol);
     return distSq <= moveSpeed * moveSpeed;
 }
+
+bool Cell::IsNeutral() const {
+    return true;
+}
+
+void Cell::Heal(int amount) {
+    hp += amount;
+    if (hp > maxHp) {
+        hp = maxHp;
+    }
+}

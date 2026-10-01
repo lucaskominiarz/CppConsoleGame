@@ -1,6 +1,5 @@
 #include "Drone.h"
-Drone::Drone(bool isJ1)
-    : Cell(50, isJ1, 2, 20, 2) {
+Drone::Drone(bool isJ1) : Cell(50, isJ1, 3, 25, 3) {
 }
 
 bool Drone::CanAttack(int sourceRow, int sourceCol, int targetRow, int targetCol) const {
@@ -8,8 +7,8 @@ bool Drone::CanAttack(int sourceRow, int sourceCol, int targetRow, int targetCol
     return distSq <= range * range;
 }
 
-bool Drone::Attack(Cell* target, int sourceRow, int sourceCol, int targetRow, int targetCol) { // faire un drone qui soigne
-    if (!target || target->IsEmpty() || target->GetPlayer() == isJ1) {
+bool Drone::Attack(Cell* target, int sourceRow, int sourceCol, int targetRow, int targetCol) {
+    if (!target || target->IsEmpty() || target->GetPlayer() == isJ1 && !target->IsNeutral()) {
         return false;
     }
 
