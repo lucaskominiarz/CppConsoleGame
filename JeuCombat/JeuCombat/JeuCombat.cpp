@@ -6,8 +6,7 @@
 #include "BomberPlane.h"
 #include "HealerDrone.h"
 #include "Building.h"
-
-#define isDebug 0
+#include "Debug.h"
 
 constexpr int gridSize = 21;
 Cell* grid[gridSize * gridSize]{ nullptr };

@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <windows.h>
 #include <iostream>
+#include "Debug.h"
 
 void SetColor(int colorCode) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -9,7 +10,10 @@ void SetColor(int colorCode) {
 }
 
 void Visual::Draw(Cell* grid[], const int size, bool isJ1Turn) { // gere l'affichage en console
+#if !isDebug
+
     system("cls");
+#endif // isDebug
     bool* attackRange = new bool[size * size] { false };
     for (int i = 0; i < size; ++i) {
         for (int j = 0; j < size; ++j) {
